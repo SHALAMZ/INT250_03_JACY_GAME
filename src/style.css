@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+body {
+	@apply bg-slate-900 text-white font-sans antialiased overflow-hidden selection:bg-pink-500 selection:text-white;
+	margin: 0;
+	display: flex;
+	min-height: 100vh;
+	min-width: 100vw;
+	background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+}
