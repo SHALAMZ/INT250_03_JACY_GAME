@@ -37,6 +37,20 @@ const playerChoice = ref({ weapon: null, element: null });
 const botChoice = ref({ weapon: null, element: null });
 
 const currentRoundLog = ref(null);
+
+// Game Logic Methods
+function startGame(rounds) {
+	maxRounds.value = rounds;
+	currentRound.value = 1;
+	turnCount.value = 1;
+	playerRoundWins.value = 0;
+	botRoundWins.value = 0;
+	playerScore.value = 0;
+	botScore.value = 0;
+	playerHearts.value = 1; // 1 per full match
+	botHearts.value = 1;
+	gameState.value = "selectWeapon";
+}
 </script>
 
 <template>
@@ -47,7 +61,7 @@ const currentRoundLog = ref(null);
 		<Scoreboard />
 
 		<!-- Start Screen -->
-		<StartScreen />
+		<StartScreen v-if="gameState === 'start'" @start="startGame" />
 
 		<!-- Select Weapon -->
 		<WeaponSelection />
