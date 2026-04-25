@@ -14,7 +14,7 @@ import RoundOverScreen from "./components/RoundOverScreen.vue";
 import MatchOverScreen from "./components/MatchOverScreen.vue";
 
 // Global State
-const gameState = ref("start"); // start, selectWeapon, selectElement, fighting, result, roundOver, matchOver
+const gameState = ref("roundOver"); // start, selectWeapon, selectElement, fighting, result, roundOver, matchOver
 
 // Match configuration
 const maxRounds = ref(1); // 1, 3, or 5
@@ -37,6 +37,18 @@ const playerChoice = ref({ weapon: null, element: null });
 const botChoice = ref({ weapon: null, element: null });
 
 const currentRoundLog = ref(null);
+
+function startNextRound() {
+	currentRound.value++;
+	turnCount.value = 1;
+	playerScore.value = 0;
+	botScore.value = 0;
+
+	playerChoice.value = { weapon: null, element: null };
+	botChoice.value = { weapon: null, element: null };
+	gameState.value = "selectWeapon";
+	console.log(gameState.value);
+}
 </script>
 
 <template>
@@ -59,7 +71,13 @@ const currentRoundLog = ref(null);
 		<BattleArena />
 
 		<!-- Round Over -->
-		<RoundOverScreen />
+		<RoundOverScreen
+			v-if="gameState === 'roundOver'"
+			:current-round="currentRound"
+			:player-score="playerScore"
+			:bot-score="botScore"
+			@next-round="startNextRound"
+		/>
 
 		<!-- Match Over -->
 		<MatchOverScreen />
