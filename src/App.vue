@@ -14,7 +14,7 @@ import RoundOverScreen from "./components/RoundOverScreen.vue";
 import MatchOverScreen from "./components/MatchOverScreen.vue";
 
 // Global State
-const gameState = ref("roundOver"); // start, selectWeapon, selectElement, fighting, result, roundOver, matchOver
+const gameState = ref("matchOver"); // start, selectWeapon, selectElement, fighting, result, roundOver, matchOver
 
 // Match configuration
 const maxRounds = ref(1); // 1, 3, or 5
@@ -80,6 +80,12 @@ function startNextRound() {
 		/>
 
 		<!-- Match Over -->
-		<MatchOverScreen />
+		<MatchOverScreen
+			v-if="gameState === 'matchOver'"
+			:player-round-wins="playerRoundWins"
+			:bot-round-wins="botRoundWins"
+			:required-wins="requiredWins"
+			@play-again="gameState = 'start'"
+		/>
 	</div>
 </template>
