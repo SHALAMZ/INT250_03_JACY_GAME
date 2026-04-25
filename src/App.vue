@@ -14,7 +14,7 @@ import RoundOverScreen from "./components/RoundOverScreen.vue";
 import MatchOverScreen from "./components/MatchOverScreen.vue";
 
 // Global State
-const gameState = ref("selectWeapon"); // start, selectWeapon, selectElement, fighting, result, roundOver, matchOver
+const gameState = ref("start"); // start, selectWeapon, selectElement, fighting, result, roundOver, matchOver
 
 // Match configuration
 const maxRounds = ref(1); // 1, 3, or 5
@@ -204,6 +204,18 @@ function nextTurn() {
 		console.log(gameState.value);
 	}
 }
+
+function startNextRound() {
+	currentRound.value++;
+	turnCount.value = 1;
+	playerScore.value = 0;
+	botScore.value = 0;
+
+	playerChoice.value = { weapon: null, element: null };
+	botChoice.value = { weapon: null, element: null };
+	gameState.value = "selectWeapon";
+	console.log(gameState.value);
+}
 </script>
 
 <template>
@@ -211,7 +223,18 @@ function nextTurn() {
 		class="h-dvh w-screen flex flex-col items-center justify-center p-4 relative overflow-hidden"
 	>
 		<!-- Permanent Scoreboard -->
-		<Scoreboard />
+		<Scoreboard
+			:player-score="playerScore"
+			:bot-score="botScore"
+			:player-hearts="playerHearts"
+			:bot-hearts="botHearts"
+			:player-round-wins="playerRoundWins"
+			:bot-round-wins="botRoundWins"
+			:current-round="currentRound"
+			:max-rounds="maxRounds"
+			:turn-count="turnCount"
+			:game-state="gameState"
+		/>
 
 		<!-- Start Screen -->
 		<StartScreen v-if="gameState === 'start'" @start="startGame" />
@@ -241,9 +264,21 @@ function nextTurn() {
 		/>
 
 		<!-- Round Over -->
-		<RoundOverScreen />
+		<RoundOverScreen
+			v-if="gameState === 'roundOver'"
+			:current-round="currentRound"
+			:player-score="playerScore"
+			:bot-score="botScore"
+			@next-round="startNextRound"
+		/>
 
 		<!-- Match Over -->
-		<MatchOverScreen />
+		<MatchOverScreen
+			v-if="gameState === 'matchOver'"
+			:player-round-wins="playerRoundWins"
+			:bot-round-wins="botRoundWins"
+			:required-wins="requiredWins"
+			@play-again="gameState = 'start'"
+		/>
 	</div>
 </template>
