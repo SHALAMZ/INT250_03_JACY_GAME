@@ -45,6 +45,16 @@ function selectWeapon(wId) {
 	}
 	gameState.value = "selectElement";
 }
+
+function selectElement(eId) {
+	playerChoice.value.element = eId;
+	gameState.value = "fighting";
+
+	setTimeout(() => {
+		calculateResult();
+	}, 1500);
+}
+
 </script>
 
 <template>
@@ -65,7 +75,10 @@ function selectWeapon(wId) {
 		/>
 
 		<!-- Select Element -->
-		<ElementSelection />
+		<ElementSelection
+			v-if="gameState === 'selectElement'"
+			@select="selectElement"
+		/>
 
 		<!-- Fighting / Result -->
 		<BattleArena />
