@@ -1,5 +1,39 @@
 @import "tailwindcss";
 
+@theme {
+	--animate-float-fast: float-fast 2s ease-in-out infinite;
+	--animate-shake: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+	
+	@keyframes float-fast {
+		0%,
+		100% {
+			transform: translateY(0px) scale(1);
+		}
+		50% {
+			transform: translateY(-10px) scale(1.05);
+		}
+	}
+	@keyframes shake {
+		10%,
+		90% {
+			transform: translate3d(-1px, 0, 0);
+		}
+		20%,
+		80% {
+			transform: translate3d(2px, 0, 0);
+		}
+		30%,
+		50%,
+		70% {
+			transform: translate3d(-4px, 0, 0);
+		}
+		40%,
+		60% {
+			transform: translate3d(4px, 0, 0);
+		}
+	}
+}
+
 body {
 	@apply bg-slate-900 text-white font-sans antialiased overflow-hidden selection:bg-pink-500 selection:text-white;
 	margin: 0;

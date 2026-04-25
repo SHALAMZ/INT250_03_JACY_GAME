@@ -16,10 +16,10 @@ defineEmits(['select'])
         <button v-for="w in weapons" :key="w.id"
                 @click="$emit('select', w.id)"
                 :disabled="w.id === 'heart' && playerHearts <= 0"
-                class="group relative flex flex-col items-center justify-center p-6 md:p-10 disabled:opacity-20 disabled:cursor-not-allowed cursor-pointer overflow-hidden rounded-3xl">
-            <div :class="['absolute inset-0 opacity-0  bg-linear-to-br', w.color]"></div>
+                class="group relative flex flex-col items-center justify-center p-6 md:p-10 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-pink-500/20 active:scale-95 disabled:opacity-20 disabled:hover:translate-y-0 disabled:hover:scale-100 disabled:cursor-not-allowed cursor-pointer overflow-hidden rounded-3xl">
+            <div :class="['absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300 bg-linear-to-br', w.color]"></div>
             
-            <span class="text-5xl md:text-8xl mb-4 md:mb-6 drop-shadow-xl">{{ w.icon }}</span>
+            <span class="text-5xl md:text-8xl mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 group-hover:animate-shake drop-shadow-xl">{{ w.icon }}</span>
             <span class="font-extrabold tracking-widest relative z-10 text-lg md:text-2xl">{{ w.name }}</span>
             <span v-if="w.special" class="absolute top-3 right-3 text-[10px] md:text-xs font-black text-white bg-pink-500 shadow-[0_0_10px_rgba(236,72,153,1)] px-3 py-1 rounded-full uppercase tracking-widest">Ultimate</span>
             
