@@ -56,7 +56,18 @@ function startNextRound() {
 		class="h-dvh w-screen flex flex-col items-center justify-center p-4 relative overflow-hidden"
 	>
 		<!-- Permanent Scoreboard -->
-		<Scoreboard />
+		<Scoreboard
+			:player-score="playerScore"
+			:bot-score="botScore"
+			:player-hearts="playerHearts"
+			:bot-hearts="botHearts"
+			:player-round-wins="playerRoundWins"
+			:bot-round-wins="botRoundWins"
+			:current-round="currentRound"
+			:max-rounds="maxRounds"
+			:turn-count="turnCount"
+			:game-state="gameState"
+		/>
 
 		<!-- Start Screen -->
 		<StartScreen />
