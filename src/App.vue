@@ -14,7 +14,7 @@ import RoundOverScreen from "./components/RoundOverScreen.vue";
 import MatchOverScreen from "./components/MatchOverScreen.vue";
 
 // Global State
-const gameState = ref("start"); // start, selectWeapon, selectElement, fighting, result, roundOver, matchOver
+const gameState = ref("selectWeapon"); // start, selectWeapon, selectElement, fighting, result, roundOver, matchOver
 
 // Match configuration
 const maxRounds = ref(1); // 1, 3, or 5
@@ -37,6 +37,14 @@ const playerChoice = ref({ weapon: null, element: null });
 const botChoice = ref({ weapon: null, element: null });
 
 const currentRoundLog = ref(null);
+
+function selectWeapon(wId) {
+	playerChoice.value.weapon = wId;
+	if (wId === "heart") {
+		playerHearts.value--;
+	}
+	gameState.value = "selectElement";
+}
 </script>
 
 <template>
@@ -50,7 +58,11 @@ const currentRoundLog = ref(null);
 		<StartScreen />
 
 		<!-- Select Weapon -->
-		<WeaponSelection />
+		<WeaponSelection
+			v-if="gameState === 'selectWeapon'"
+			:player-hearts="playerHearts"
+			@select="selectWeapon"
+		/>
 
 		<!-- Select Element -->
 		<ElementSelection />
