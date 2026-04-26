@@ -8,7 +8,7 @@ defineEmits(['nextRound'])
 </script>
 
 <template>
-    <div class="flex flex-col items-center w-full z-20 mt-10">
+    <div class="flex flex-col items-center w-full z-20 mt-10 animate-pop-in">
         <span class="text-xl text-gray-400 tracking-[0.3em] uppercase mb-4">Round {{ currentRound }} Finished</span>
         
         <h2 class="text-6xl md:text-8xl font-black mb-8 text-transparent bg-clip-text pb-2 px-4" :class="playerScore > botScore ? 'bg-linear-to-r from-pink-400 to-orange-400' : playerScore < botScore ? 'bg-linear-to-r from-cyan-400 to-indigo-400' : 'bg-linear-to-r from-gray-300 to-gray-500'">

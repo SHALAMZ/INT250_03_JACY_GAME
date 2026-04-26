@@ -9,14 +9,14 @@ defineEmits(['select'])
 </script>
 
 <template>
-    <div class="flex flex-col items-center w-full max-w-5xl relative z-10 mt-16 md:mt-24">
+    <div class="flex flex-col items-center w-full max-w-5xl relative z-10 mt-16 md:mt-24 animate-pop-in">
         <h2 class="text-3xl md:text-5xl font-black mb-8 text-center bg-clip-text text-transparent bg-linear-to-r from-white to-gray-400 drop-shadow-md">Choose Weapon</h2>
         
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 w-full p-2">
         <button v-for="w in weapons" :key="w.id"
                 @click="$emit('select', w.id)"
                 :disabled="w.id === 'heart' && playerHearts <= 0"
-                class="group relative flex flex-col items-center justify-center p-6 md:p-10 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-pink-500/20 active:scale-95 disabled:opacity-20 disabled:hover:translate-y-0 disabled:hover:scale-100 disabled:cursor-not-allowed cursor-pointer overflow-hidden rounded-3xl">
+                class="glass-panel group relative flex flex-col items-center justify-center p-6 md:p-10 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-pink-500/20 active:scale-95 disabled:opacity-20 disabled:hover:translate-y-0 disabled:hover:scale-100 disabled:cursor-not-allowed cursor-pointer overflow-hidden rounded-3xl">
             <div :class="['absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300 bg-linear-to-br', w.color]"></div>
             
             <span class="text-5xl md:text-8xl mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 group-hover:animate-shake drop-shadow-xl">{{ w.icon }}</span>

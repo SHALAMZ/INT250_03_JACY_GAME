@@ -9,7 +9,7 @@ defineEmits(['playAgain'])
 </script>
 
 <template>
-    <div class="flex flex-col items-center w-full z-30 inset-0 absolute bg-slate-900/90 backdrop-blur-xl justify-center">
+    <div class="flex flex-col items-center w-full z-30 inset-0 absolute bg-slate-900/90 backdrop-blur-xl justify-center animate-pop-in">
 
         <span class="text-xl md:text-2xl text-pink-300 tracking-[0.5em] uppercase mb-6 animate-pulse">Match Concluded</span>
 

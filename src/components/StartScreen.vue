@@ -25,15 +25,15 @@ defineEmits(['start'])
 
         <h3 class="text-xl font-black mb-4 text-pink-300 uppercase tracking-widest">Select Rounds</h3>
         <div class="flex flex-col md:flex-row gap-4">
-        <button @click="$emit('start', 1)" class="group px-8 py-4 glass-panel transition-all active:scale-95 border border-white/10">
-            <div class="font-black text-xl">Best of 1</div><div class="text-xs text-gray-400">Quick Match</div>
-        </button>
-        <button @click="$emit('start', 3)" class="group px-8 py-4 glass-panel bg-linear-to-br from-pink-500/20 to-indigo-600/20 transition-all active:scale-95 border border-white/10">
-            <div class="font-black text-xl">Best of 3</div><div class="text-xs text-pink-200">Standard Match</div>
-        </button>
-        <button @click="$emit('start', 5)" class="group px-8 py-4 glass-panel transition-all active:scale-95 border border-white/10">
-            <div class="font-black text-xl">Best of 5</div><div class="text-xs text-gray-400">Epic Showdown</div>
-        </button>
+            <button @click="$emit('start', 1)" class="group px-8 py-4 glass-panel hover:bg-white/20 transition-all hover:scale-105 active:scale-95 border border-white/10 hover:border-pink-500 cursor-pointer">
+                <div class="font-black text-xl">Best of 1</div><div class="text-xs text-gray-400">Quick Match</div>
+            </button>
+            <button @click="$emit('start', 3)" class="group px-8 py-4 glass-panel bg-linear-to-br from-pink-500/20 to-indigo-600/20 hover:bg-pink-500/40 transition-all hover:scale-105 active:scale-95 border border-white/10 hover:border-pink-500 cursor-pointer">
+                <div class="font-black text-xl">Best of 3</div><div class="text-xs text-pink-200">Standard Match</div>
+            </button>
+            <button @click="$emit('start', 5)" class="group px-8 py-4 glass-panel hover:bg-white/20 transition-all hover:scale-105 active:scale-95 border border-white/10 hover:border-pink-500 cursor-pointer">
+                <div class="font-black text-xl">Best of 5</div><div class="text-xs text-gray-400">Epic Showdown</div>
+            </button>
         </div>
     </div>
 </template>
