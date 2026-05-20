@@ -220,7 +220,7 @@ function startNextRound() {
 
 <template>
 	<div
-		class="h-dvh w-screen flex flex-col items-center justify-center p-4 relative overflow-hidden"
+		class="h-dvh w-screen flex flex-col items-center justify-center relative"
 	>
 		<!-- Permanent Scoreboard -->
 		<Scoreboard

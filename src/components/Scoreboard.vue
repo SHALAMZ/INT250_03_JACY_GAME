@@ -46,7 +46,7 @@ defineProps({
         </div>
         
         <!-- Round and Turn Counter Background -->
-        <div v-if="gameState !== 'start' && gameState !== 'matchOver'" class="absolute py-2 top-8 md:top-12 z-0 flex flex-col w-full items-center text-white/20 select-none pointer-events-none w-full">
+        <div v-if="gameState !== 'start' && gameState !== 'matchOver'" class="absolute py-2 top-8 left-0 md:top-12 z-0 flex flex-col w-full items-center text-white/20 select-none pointer-events-none w-full">
         <span class="font-black text-3xl md:text-5xl uppercase tracking-widest">GAME {{ currentRound }} / {{ maxRounds }}</span>
         <span class="font-bold text-xl md:text-2xl tracking-[0.2em] mt-2">TURN {{ turnCount }} / 5</span>
         </div>

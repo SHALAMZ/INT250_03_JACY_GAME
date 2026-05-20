@@ -3,7 +3,7 @@ defineEmits(['start'])
 </script>
 
 <template>
-    <div class="flex flex-col items-center z-20 animate-pop-in">
+    <div class="flex flex-col items-center p-6 z-20 animate-pop-in">
         <div class="text-6xl md:text-8xl mb-8 flex gap-2 md:gap-6 animate-float-slow">
         <span class="origin-bottom-right -rotate-12 transform drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">✊</span>
         <span class="origin-bottom transform rotate-12 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">✋</span>

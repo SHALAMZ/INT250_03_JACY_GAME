@@ -9,7 +9,7 @@ defineEmits(['select'])
 </script>
 
 <template>
-    <div class="flex flex-col items-center w-full max-w-5xl relative z-10 mt-16 md:mt-24 animate-pop-in">
+    <div class="flex flex-col items-center w-full max-w-5xl relative p-6 z-10 mt-16 md:mt-24 animate-pop-in">
         <h2 class="text-3xl md:text-5xl font-black mb-8 text-center bg-clip-text text-transparent bg-linear-to-r from-white to-gray-400 drop-shadow-md">Choose Weapon</h2>
         
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 w-full p-2">
